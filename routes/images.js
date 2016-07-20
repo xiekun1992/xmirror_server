@@ -43,7 +43,7 @@ router.post('/',function(req,res){
 	}
 });
 router.get('/:uploadId/progress',function(req,res){
-	var progress=uploadProgress[req.params.uploadId];
+	var progress=uploadProgress[req.params.uploadId]||0;
 	if(progress<100){
 		res.status(200).json({code:1003,msg:progress});
 	}else{
