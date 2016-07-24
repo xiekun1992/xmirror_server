@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%=title %></title>
+	<link rel="stylesheet" href="/stylesheets/reset.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+	<aside>
+
+	</aside>
+	<section class='clearfix'>
+		<% var rows=Math.ceil(pictures.length/5) %>
+		<ul>
+			<% for(var i=0;i<rows;i++){ %>
+			<li>
+				<article>
+					<div class="wrapper">
+						<div>
+							<img src="<%=pictures[i].url %>">
+						</div>
+						<div><%=pictures[i].title %></div>
+					</div>
+				</article>
+			</li>
+			<% } %>
+		</ul>
+		<ul>
+			<% for(var i=rows;i<rows*2;i++){ %>
+			<li>
+				<article>
+					<div class="wrapper">
+						<div>
+							<img src="<%=pictures[i].url %>">
+						</div>
+						<div><%=pictures[i].title %></div>
+					</div>
+				</article>
+			</li>
+			<% } %>
+		</ul>
+		<ul>
+			<% for(var i=rows*2;i<rows*3;i++){ %>
+			<li>
+				<article>
+					<div class="wrapper">
+						<div>
+							<img src="<%=pictures[i].url %>">
+						</div>
+						<div><%=pictures[i].title %></div>
+					</div>
+				</article>
+			</li>
+			<% } %>
+		</ul>
+		<ul>
+			<% for(var i=rows*3;i<rows*4;i++){ %>
+			<li>
+				<article>
+					<div class="wrapper">
+						<div>
+							<img src="<%=pictures[i].url %>">
+						</div>
+						<div><%=pictures[i].title %></div>
+					</div>
+				</article>
+			</li>
+			<% } %>
+		</ul>
+		<ul>
+			<% for(var i=rows*4;i<rows*5;i++){ if(pictures[i]){%>
+			<li>
+				<article>
+					<div class="wrapper">
+						<div>
+							<img src="<%=pictures[i].url %>">
+						</div>
+						<div><%=pictures[i].title %></div>
+					</div>
+				</article>
+			</li>
+			<% } } %>
+		</ul>
+		<footer>© <%=copyright %> xmirror</footer>
+	</section>
+</body>
+</html>
