@@ -10,12 +10,12 @@
 	<aside>
 
 	</aside>
-	<section class='clearfix'>
+	<section class='clearfix waterfall'>
 		<% var rows=Math.ceil(pictures.length/5) %>
 		<ul>
 			<% for(var i=0;i<rows;i++){ %>
 			<li>
-				<article>
+				<article onclick="showImage('<%=pictures[i].url %>','<%=pictures[i].title %>')">
 					<div class="wrapper">
 						<div>
 							<img src="<%=pictures[i].url %>">
@@ -29,7 +29,7 @@
 		<ul>
 			<% for(var i=rows;i<rows*2;i++){ %>
 			<li>
-				<article>
+				<article onclick="showImage('<%=pictures[i].url %>','<%=pictures[i].title %>')">
 					<div class="wrapper">
 						<div>
 							<img src="<%=pictures[i].url %>">
@@ -43,7 +43,7 @@
 		<ul>
 			<% for(var i=rows*2;i<rows*3;i++){ %>
 			<li>
-				<article>
+				<article onclick="showImage('<%=pictures[i].url %>','<%=pictures[i].title %>')">
 					<div class="wrapper">
 						<div>
 							<img src="<%=pictures[i].url %>">
@@ -57,7 +57,7 @@
 		<ul>
 			<% for(var i=rows*3;i<rows*4;i++){ %>
 			<li>
-				<article>
+				<article onclick="showImage('<%=pictures[i].url %>','<%=pictures[i].title %>')">
 					<div class="wrapper">
 						<div>
 							<img src="<%=pictures[i].url %>">
@@ -71,7 +71,7 @@
 		<ul>
 			<% for(var i=rows*4;i<rows*5;i++){ if(pictures[i]){%>
 			<li>
-				<article>
+				<article onclick="showImage('<%=pictures[i].url %>','<%=pictures[i].title %>')">
 					<div class="wrapper">
 						<div>
 							<img src="<%=pictures[i].url %>">
@@ -84,5 +84,31 @@
 		</ul>
 		<footer>© <%=copyright %> xmirror</footer>
 	</section>
+
+	<section id="imageBg">
+		<article>
+			<div>
+				<span id="title"></span>
+				<span onclick="imageBg.style.display='none'">&times;</span>
+			</div>
+			<canvas id="canvas" width="800px" height="570px"></canvas>
+		</article>
+	</section>
+	<script>
+	var c=document.querySelector('#canvas');
+	var cxt=c.getContext('2d');
+	var img=new Image();
+	function showImage(url,title){
+		img.onload=function(){
+			cxt.clearRect(0,0,800,570);
+			cxt.drawImage(img,(800-img.width)/2,0);
+		};
+		img.src=url;
+		document.querySelector('#imageBg').style.display='block';
+		// document.querySelector('#url').src=url;
+		document.querySelector('#title').innerHTML=title;
+
+	}
+	</script>
 </body>
 </html>

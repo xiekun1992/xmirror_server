@@ -23,31 +23,32 @@ footer{
     padding-right: 250px;
    	background: #f3f3f3;
 }
-section{
+section.waterfall{
 	margin-right: 250px;
     padding: 10px 10px 50px 10px;
+    font-size: 12px;
 }
-section>ul,
-section>ul>li{
+section.waterfall>ul,
+section.waterfall>ul>li{
 	float: left;
 	list-style: none;
 }
-section>ul{
+section.waterfall>ul{
 	width: 20%;
 }
-section article{
+section.waterfall article{
 	width: 100%;
     float: left;
     border: 5px solid transparent;
     text-align: center;
     padding: 5px;
 }
-section .wrapper{
+section.waterfall .wrapper{
 	border: 1px solid #f3f3f3;
-    box-shadow: 2px 2px 5px #76787F;
+    box-shadow: 1px 1px 1px #76787F;
     padding: 5px;
 }
-section .wrapper img{
+section.waterfall .wrapper img{
 	margin-bottom: 5px;
 	width: 100%;
 }
@@ -57,4 +58,20 @@ section .wrapper img{
 	clear: both;
 	height: 0;
 	width: 0;
+}
+#imageBg{
+	display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+#imageBg>article{
+	background: #fff;
+    width: 800px;
+    margin: 10px auto;
+    height: 600px;
 }
